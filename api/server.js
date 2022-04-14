@@ -9,9 +9,10 @@ const server = express()
 server.use(express.json())
 // server.use(helmet()); 
 
-// server.get('/', (req, res) => {
-//     res.end('<h1> Hello, world!</h1>');
-// });
+server.get('/', (req, res) => {
+    console.log('sanity check'); 
+    res.json({MESSAGE: process.env.MESSAGE})
+});
 
 
 server.get('/api/users', (req, res) => {
