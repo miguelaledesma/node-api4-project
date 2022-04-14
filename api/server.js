@@ -1,4 +1,4 @@
-const e = require('express');
+
 const express = require('express'); 
 
 
@@ -32,6 +32,19 @@ server.post('./api/register'), (req, res) => {
         })
     }
 }
+
+server.post('/api/login', (req, res) => {
+    const user = req.body;
+    if (!user.username || !user.password) {
+        res.status(400).json({
+            message: "Please provide username and password for the user"
+        })
+    } else {
+      res.json({
+          message: "Welcome!"
+      })
+    }
+})
 
 
 
